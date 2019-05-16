@@ -5,12 +5,19 @@
 4. Xem thông tin các sự kiện
 ## Form sự kiện
 * Tên sự kiện
-* Thời gian
+* Thời gian bắt đầu sự kiện
 * Địa điểm (địa chỉ)
 * Ban tổ chức
 * Agenda
+* Thời hạn đăng ký 
 * Lệ phí đăng ký
-* Giải thưởng
+* Giới hạn số đăng ký
+* Thông tin về các bộ môn:
+    * Giải thưởng từng bộ môn
+    * Thời gian diễn ra các môn
+    * Số round của từng môn
+    * Số người từng round
+    * Số người được chơi round tiếp theo
 * Thông tin khác
 
 # User
