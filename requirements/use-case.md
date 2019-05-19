@@ -10,7 +10,7 @@
 * Địa điểm (địa chỉ)
 * Ban tổ chức
 2. Form nhỏ 2
-* Agenda
+* Agenda (admin upload file)
 * Thời hạn đăng ký 
 * Lệ phí đăng ký
 * Giới hạn số đăng ký
