@@ -7,7 +7,7 @@
 1. Form nhỏ 1
 * Tên sự kiện
 * Thời gian bắt đầu sự kiện
-* Địa điểm (địa chỉ)
+* Địa điểm (API google map/địa chỉ)
 * Ban tổ chức
 2. Form nhỏ 2
 * Agenda (admin upload file)
