@@ -4,14 +4,17 @@
 3. Xem danh sách thí sinh
 4. Xem thông tin các sự kiện
 ## Form sự kiện
+1. Form nhỏ 1
 * Tên sự kiện
 * Thời gian bắt đầu sự kiện
 * Địa điểm (địa chỉ)
 * Ban tổ chức
+2. Form nhỏ 2
 * Agenda
 * Thời hạn đăng ký 
 * Lệ phí đăng ký
 * Giới hạn số đăng ký
+3. Form nhỏ 3
 * Thông tin về các bộ môn:
     * Giải thưởng từng bộ môn
     * Thời gian diễn ra các môn
