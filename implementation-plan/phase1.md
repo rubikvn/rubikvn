@@ -1,6 +1,6 @@
 ## Implementation phase 1
 
-Mục tiêu: 
+### Mục tiêu: 
 - Hoàn thành các tính năng cơ bản của rubikvn website. 
 - Làm quen với team working, nắm được các kĩ năng khi làm việc với các công nghệ như git, npm, mysql ...
 
