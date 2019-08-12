@@ -1,17 +1,22 @@
 var express = require("express");
 var app = express();
+
 var bodyParser = require("body-parser");
 var path = require("path");
 var {AuthRoute} = require("./routes");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('views', path.join(__dirname, 'views'));
+
+//set view engine =
+app.set('view engine', 'ejs');
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/auth", AuthRoute);
+
 app.get("/", (req, res, next) => {
-    res.send("Hello rubikvn");
+    res.render('page/home', );
 })
 
 const port = 3000;

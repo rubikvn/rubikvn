@@ -1,0 +1,45 @@
+@import "variable";
+
+body {
+    padding-top: 50px;
+    background-color: $primary_light !important;
+}
+
+header {
+    nav {
+        background-color: $secondary_light !important;
+    }
+
+    .navbar-brand {
+        color: $primary_dark !important;
+    }
+
+    .nav-item {
+
+        .nav-link {
+            color: $secondary_dark !important;
+        }
+    }
+}
+
+footer {
+    color: $secondary_dark !important;
+}
+
+.hidden-sm {
+    @media (max-width: $md) {
+        display: none;
+    }
+}
+
+.hidden-md {
+    @media (max-width: $lg) {
+        display: none;
+    }
+}
+
+.hidden-lg {
+    @media (max-width: $xl) {
+        display: none;
+    }
+}
