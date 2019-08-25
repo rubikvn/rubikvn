@@ -25,7 +25,8 @@
     "mysql": "^2.17.1",
     "node-sass": "^4.12.0",
     "passport": "^0.4.0",
-    "passport-wca": "^1.0.3"
+    "passport-wca": "^1.0.3",
+    "sass": "^1.22.3"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.10.1",
