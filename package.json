@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch public/css/scss/final.scss public/css/final.css"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,13 @@
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "mysql": "^2.17.1",
+    "node-sass": "^4.12.0",
     "passport": "^0.4.0",
     "passport-wca": "^1.0.3",
     "sass": "^1.22.3"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.1",
     "nodemon": "^1.19.1"
   }
 }

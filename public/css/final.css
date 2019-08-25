@@ -1,0 +1,31 @@
+/* color */
+/* screen width (currently using bootstrap's) */
+/* color */
+/* screen width (currently using bootstrap's) */
+body {
+  padding-top: 50px;
+  background-color: #ff94c2 !important; }
+
+header nav {
+  background-color: #eeffff !important; }
+
+header .navbar-brand {
+  color: #ba2d65 !important; }
+
+header .nav-item .nav-link {
+  color: #8aacc8 !important; }
+
+footer {
+  color: #8aacc8 !important; }
+
+@media (max-width: 767.98px) {
+  .hidden-sm {
+    display: none; } }
+
+@media (max-width: 991.98px) {
+  .hidden-md {
+    display: none; } }
+
+@media (max-width: 1199.98px) {
+  .hidden-lg {
+    display: none; } }

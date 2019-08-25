@@ -1,3 +1,5 @@
+//define AuthRoute
+
 var express = require("express");
 var passport = require("passport");
 var WcaStrategy = require("passport-wca");
