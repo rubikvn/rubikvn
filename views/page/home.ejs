@@ -4,21 +4,34 @@
 <html lang="en">
 
 <head>
+    <!-- Head -->
     <% include ../partial/head %>
 </head>
 
-<body class="container">
-
+<body>
+    <!-- Header -->
     <header>
         <% include ../partial/header %>
     </header>
 
-    <main>
+    <!-- Home -->
+    <main class="container ">
+
+        <div class="row justify-content-center greeting">
+            <h2 class="col-16 text-center view-pc"> <!-- PC -->
+                Chào mừng bạn đến với trang web chính thức của Cộng đồng Rubik Việt Nam
+            </h2>
+            <h3 class="col-20 text-center view-tablet"> <!-- phone -->
+                Chào mừng bạn đến với trang web chính thức của Cộng đồng Rubik Việt Nam
+            </h3>
+        </div>
+
         <div class="jumbotron">
-            <p class="hidden-sm">This text is hidden if view on phone</p>
+            <p class="">This text is hidden if view on phone</p>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>
         <% include ../partial/footer %>
     </footer>

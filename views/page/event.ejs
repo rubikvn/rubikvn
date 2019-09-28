@@ -1,0 +1,75 @@
+<!-- views/page/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Head -->
+    <% include ../partial/head %>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <% include ../partial/header %>
+    </header>
+
+    <!-- Home -->
+    <main class="container ">
+
+        <div class="row justify-content-center greeting">
+            <h1 class="col-8 text-center view-pc">
+                <!-- PC -->
+                Sự kiện
+            </h1>
+            <h3 class="col-10 text-center view-tablet">
+                <!-- phone -->
+                Sự kiện
+            </h3>
+        </div>
+
+        <!-- Buttons for admin -->
+        <div id="buttons">
+
+        </div>
+
+        <div id="events" class="row justify-content-between">
+
+            <!-- Each event get from db view PC-->
+            <div class="card col-7 border-0 view-pc">
+
+                <img src="/img/hn_open_2019.jpg" class="card-img-top">
+
+                <a href="#">
+                    <div class="card-body">
+                        <h5 class="card-title">Hanoi Open 2019</h5>
+                        <p class="card-text">
+                            Some quick example text to build on the card title and make up the bulk of the
+                            card's content.
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <!-- view tablet -->
+            <div class="card col-24 border-0 view-tablet">
+                <img src="/img/hn_open_2019.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Hanoi Open 2019</h5>
+                    <p class="card-text">
+                        Some quick example text to build on the card title and make up the bulk of the
+                        card's content.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <% include ../partial/footer %>
+    </footer>
+
+</body>
+
+</html>

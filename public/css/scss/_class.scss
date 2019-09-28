@@ -1,0 +1,48 @@
+@import "variable";
+
+.view-phone {
+    @media (max-width: $sm) and (min-width: $md) {
+        display: none;
+    }
+}
+
+.view-tablet {
+    @media (min-width: $md) {
+        display: none;
+    }
+}
+
+.view-pc {
+    @media (max-width: $md) {
+        display: none;
+    }
+}
+
+.card {
+    background-color: $secondary_blue;
+    width: 30%;
+    margin: 1%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    img {
+        filter: brightness(0.5);
+    }
+
+    a {
+        width: 100%;
+        position: absolute;
+        text-decoration: none !important;
+
+        &:hover {
+            filter: brightness(1.5);
+        }
+    }
+
+    .card-body {
+
+        color: white !important;
+        filter: brightness(0.9);
+    }
+
+}

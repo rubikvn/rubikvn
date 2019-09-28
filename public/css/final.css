@@ -2,30 +2,131 @@
 /* screen width (currently using bootstrap's) */
 /* color */
 /* screen width (currently using bootstrap's) */
-body {
-  padding-top: 50px;
-  background-color: #ff94c2 !important; }
+@media (max-width: 575.98px) and (min-width: 767.98px) {
+  .view-phone {
+    display: none; } }
 
-header nav {
-  background-color: #eeffff !important; }
-
-header .navbar-brand {
-  color: #ba2d65 !important; }
-
-header .nav-item .nav-link {
-  color: #8aacc8 !important; }
-
-footer {
-  color: #8aacc8 !important; }
+@media (min-width: 767.98px) {
+  .view-tablet {
+    display: none; } }
 
 @media (max-width: 767.98px) {
-  .hidden-sm {
+  .view-pc {
     display: none; } }
 
-@media (max-width: 991.98px) {
-  .hidden-md {
+.card {
+  background-color: #C5E3FB;
+  width: 30%;
+  margin: 1%;
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+  .card img {
+    filter: brightness(0.5); }
+  .card a {
+    width: 100%;
+    position: absolute;
+    text-decoration: none !important; }
+    .card a:hover {
+      filter: brightness(1.5); }
+  .card .card-body {
+    color: white !important;
+    filter: brightness(0.9); }
+
+body {
+  background-color: #eeffff !important; }
+  body header nav {
+    background-color: #3a769b !important; }
+    @media (min-width: 991.98px) {
+      body header nav .navbar-nav {
+        margin-left: auto;
+        width: 50%; } }
+    @media (min-width: 991.98px) {
+      body header nav .navbar-nav .nav-item {
+        width: 25%;
+        text-align: center; } }
+  body main .greeting {
+    padding: 2%;
+    font-family: 'Noto Serif', serif;
+    cursor: default; }
+  body footer {
+    color: #C5E3FB !important; }
+
+/* color */
+/* screen width (currently using bootstrap's) */
+/* color */
+/* screen width (currently using bootstrap's) */
+@media (max-width: 575.98px) and (min-width: 767.98px) {
+  .view-phone {
     display: none; } }
 
-@media (max-width: 1199.98px) {
-  .hidden-lg {
+@media (min-width: 767.98px) {
+  .view-tablet {
     display: none; } }
+
+@media (max-width: 767.98px) {
+  .view-pc {
+    display: none; } }
+
+.card {
+  background-color: #C5E3FB;
+  width: 30%;
+  margin: 1%;
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+  .card img {
+    filter: brightness(0.5); }
+  .card a {
+    width: 100%;
+    position: absolute;
+    text-decoration: none !important; }
+    .card a:hover {
+      filter: brightness(1.5); }
+  .card .card-body {
+    color: white !important;
+    filter: brightness(0.9); }
+
+/* event page */
+/* color */
+/* screen width (currently using bootstrap's) */
+/* color */
+/* screen width (currently using bootstrap's) */
+@media (max-width: 575.98px) and (min-width: 767.98px) {
+  .view-phone {
+    display: none; } }
+
+@media (min-width: 767.98px) {
+  .view-tablet {
+    display: none; } }
+
+@media (max-width: 767.98px) {
+  .view-pc {
+    display: none; } }
+
+.card {
+  background-color: #C5E3FB;
+  width: 30%;
+  margin: 1%;
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+  .card img {
+    filter: brightness(0.5); }
+  .card a {
+    width: 100%;
+    position: absolute;
+    text-decoration: none !important; }
+    .card a:hover {
+      filter: brightness(1.5); }
+  .card .card-body {
+    color: white !important;
+    filter: brightness(0.9); }
+
+/* ranking page */
+.box {
+  position: sticky;
+  top: 10%;
+  padding: 25px; }
+  .box:hover {
+    background-color: #C5E3FB; }
+
+.result {
+  padding: 15px; }
