@@ -16,3 +16,12 @@ npm start
 docker-compose up
 ```
 3. Open [http://localhost:3000](http://localhost:3000)
+
+## Set up DB
+1. Download WCA DB export (SQL file): https://www.worldcubeassociation.org/results/misc/export.html
+2. MySQL config:
+  user: 'rubikvn',
+  password: 'admin',
+  database: 'wca_db'
+3. Run WCA SQL file on wca_db
+4. Run "procedure" and "vietnam_only" files
