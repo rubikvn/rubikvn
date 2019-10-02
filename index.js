@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //home
 app.get("/", (req, res, next) => {
     res.render('page/home', );
+
 });
 
 var ranking = require("./routes/ranking.route");

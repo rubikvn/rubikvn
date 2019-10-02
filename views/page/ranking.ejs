@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label for="event" class="">Bộ môn</label>
                             <select class="form-control" id="event">
-                                <option>Rubik's Cube (333)</option>
+                                <option>Rubik's Cube</option>
                                 <option>222</option>
                                 <option>444</option>
                             </select>
@@ -53,16 +53,16 @@
                         <div class="form-group">
                             <label class="">Hiển thị kết quả</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="format" id="best" value="best" checked>
+                                <input class="form-check-input" type="radio" name="format" id="best" value="best"
+                                    checked>
                                 <label class="form-check-label" for="best">
-                                    Tốt nhất (Best)
+                                    Tốt nhất
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="format" id="average"
-                                    value="average">
+                                <input class="form-check-input" type="radio" name="format" id="average" value="average">
                                 <label class="form-check-label" for="average">
-                                    Trung bình (Average)
+                                    Trung bình
                                 </label>
                             </div>
                         </div>
@@ -73,25 +73,30 @@
 
             <div id="tableResult" class="col-18">
                 <div class="result border rounded">
-                    <table class="table table-sm table-hover">
+                    <table class="table-responsive table-sm table-hover">
                         <thead class="">
                             <tr>
-                                <th scope="col">Thứ hạng</th>
-                                <th scope="col">Tên</th>
-                                <th scope="col">Thời gian nhanh nhất</th>
-                                <th scope="col">Thời gian trung bình</th>
+                                <th scope="col">Hạng</th>
+                                <th scope="col">Tên thí sinh</th>
+                                <th scope="col"><%= format %></th>
                                 <th scope="col">Giải đấu</th>
-                                
+                                <th scope="col" colspan="5" class="text-center">Thời gian</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <% for(var i=start; i < end; i++) { %>
                             <tr>
-                                <th scope="row">1</th>
-                                <td><a target="_blank" href="https://www.worldcubeassociation.org/persons/2014TRUN01">Vương Thiện Trung</a></td>
-                                <td>6.84</td>
-                                <td>10.84</td>
-                                <td>Hanoi Open 2025</td>
+                                <td><%= i+1 %></td>
+                                <td><%= results[0][i].personName%></td>
+                                <td><%= results[0][i].format%></td>
+                                <td><%= results[0][i].competition%></td>
+                                <td><%= results[0][i].value1%></td>
+                                <td><%= results[0][i].value2%></td>
+                                <td><%= results[0][i].value3%></td>
+                                <td><%= results[0][i].value4%></td>
+                                <td><%= results[0][i].value5%></td>
                             </tr>
+                            <% } %>
                         </tbody>
                     </table>
                 </div>

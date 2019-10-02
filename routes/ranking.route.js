@@ -2,21 +2,27 @@ var router = require("express").Router();
 
 var connectDB = require("../middleware/DBconnection.middleware");
 
-connectDB.query("call getResultBest('333')", function (err, rows, fields) {
-  if (err) throw err
-
-  console.log('333: ', rows)
-})
-
-connectDB.end()
-
 //ranking
 router.get("/ranking", (req, res, next) => {
-  var results = [
+  var resultSet
+  var event = '333'
+  var format = 'Average'
+  
 
-  ]
+  connectDB.query("call getResult" + format + "('" + event + "')", function (err, rows, fields) {
+    if (err) throw err
 
-  res.render('page/ranking');
+    resultSet = rows
+    
+    res.render('page/ranking', {
+      results: resultSet,
+      format: format,
+      start: 0,
+      end: 100,
+    });
+  
+  })
+
 });
 
 module.exports = router

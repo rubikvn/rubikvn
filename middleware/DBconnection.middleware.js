@@ -16,11 +16,4 @@ wca_db.connect(function(err) {
   console.log('connected as id ' + wca_db.threadId);
 });
 
-wca_db.query('select * from events', function (err, rows, fields) {
-  if (err) throw err
-
-  console.log('333: ', rows[1].name)
-})
-
-
 module.exports = wca_db
