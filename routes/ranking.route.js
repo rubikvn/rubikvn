@@ -4,7 +4,7 @@ var connectDB = require("../middleware/DBconnection.middleware");
 
 //ranking
 router.get("/ranking", (req, res, next) => {
-  var resultSet
+
   var event = '333'
   var format = 'Average'
   

@@ -87,14 +87,24 @@
                             <% for(var i=start; i < end; i++) { %>
                             <tr>
                                 <td><%= i+1 %></td>
-                                <td><%= results[0][i].personName%></td>
+                                <td>
+                                    <a target="_blank"
+                                        href="<%= 'https://www.worldcubeassociation.org/persons/' + results[0][i].personId %>">
+                                        <%= results[0][i].personName%>
+                                    </a> <!-- Go to cuber's WCA profile page-->
+                                </td>
                                 <td><%= results[0][i].format%></td>
-                                <td><%= results[0][i].competition%></td>
-                                <td><%= results[0][i].value1%></td>
-                                <td><%= results[0][i].value2%></td>
-                                <td><%= results[0][i].value3%></td>
-                                <td><%= results[0][i].value4%></td>
-                                <td><%= results[0][i].value5%></td>
+                                <td>
+                                    <a target="_blank"
+                                        href="<%= 'https://www.worldcubeassociation.org/competitions/' + results[0][i].competitionId %>">
+                                        <%= results[0][i].competition%>
+                                    </a>
+                                </td> <!-- Go to event's WCA page-->
+                                <td><%= results[0][i].value1.substr(0, 5)%></td>
+                                <td><%= results[0][i].value2.substr(0, 5)%></td>
+                                <td><%= results[0][i].value3.substr(0, 5)%></td>
+                                <td><%= results[0][i].value4.substr(0, 5)%></td>
+                                <td><%= results[0][i].value5.substr(0, 5)%></td>
                             </tr>
                             <% } %>
                         </tbody>
