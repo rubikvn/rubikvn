@@ -4,71 +4,80 @@
 <html lang="en">
 
 <head>
-    <!-- Head -->
-    <% include ../partial/head %>
+  <!-- Head -->
+  <% include ../partial/head %>
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <% include ../partial/header %>
-    </header>
+  <!-- Header -->
+  <header>
+    <% include ../partial/header %>
+  </header>
 
-    <!-- Home -->
-    <main class="container ">
+  <!-- Home -->
+  <main class="container ">
 
-        <div class="row justify-content-center greeting">
-            <h1 class="col-8 text-center view-pc">
-                <!-- PC -->
-                Sự kiện
-            </h1>
-            <h3 class="col-10 text-center view-tablet">
-                <!-- phone -->
-                Sự kiện
-            </h3>
-        </div>
+    <div class="row justify-content-center greeting">
+      <h2 class="col-8 text-center view-pc">
+        <!-- PC -->
+        Sự kiện
+      </h2>
+      <h3 class="col-10 text-center view-tablet">
+        <!-- phone -->
+        Sự kiện
+      </h3>
+    </div>
 
-        <!-- Buttons for admin -->
-        <div id="buttons">
+    <div id="events" class="row ">
 
-        </div>
-
-        <div id="events" class="row justify-content-between">
-
-            <!-- Each event get from db view PC-->
-            <div class="card col-7 border-0 view-pc">
-
-                <img src="/img/hn_open_2019.jpg" class="card-img-top">
-
-                <a href="#">
-                    <div class="card-body">
-                        <h5 class="card-title">Hanoi Open 2019</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the
-                            card's content.
-                        </p>
-                    </div>
-                </a>
+      <% let start = page * 6;
+                  let end = start + 5 %>
+      <% for(var i=start; i <= end; i++) { 
+        if (i > competitions.length - 1) break %>
+      <div class="col-sm-24 col-lg-8 ">
+        <div class="card border rounded ">
+          <a target="_blank" href="<%= 'https://www.worldcubeassociation.org/competitions/' + competitions[i].id %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= competitions[i].name %></h5>
+              <p class="card-text">
+                Địa điểm: <%= competitions[i].venue %>
+                <br>
+                Thời gian: Ngày <%= competitions[i].day %> tháng <%= competitions[i].month %> năm <%= competitions[i].year %>
+              </p>
             </div>
-            <!-- view tablet -->
-            <div class="card col-24 border-0 view-tablet">
-                <img src="/img/hn_open_2019.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Hanoi Open 2019</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                </div>
-            </div>
-
+          </a>
         </div>
-    </main>
+      </div>
+      <% } %>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <% include ../partial/footer %>
-    </footer>
+    <!-- Pagination -->
+    <div class="row">
+      <% if (page > 0) { %>
+      <div class="col-12">
+        <a href="/event?page=<%= page - 1%>">
+          <div class="paging-button text-center">
+            &lsaquo;
+          </div>
+        </a>
+      </div>
+      <% } %>
+      <% if (page < Math.floor(competitions.length / 6)) { %>
+      <div class="col-12">
+        <a href="/event?page=<%= page + 1 %>">
+          <div class="paging-button text-center">
+            &rsaquo;
+          </div>
+        </a>
+      </div>
+      <% } %>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <% include ../partial/footer %>
+  </footer>
 
 </body>
 

@@ -15,21 +15,21 @@
     display: none; } }
 
 .card {
-  background-color: #C5E3FB;
-  width: 30%;
-  margin: 1%;
+  height: 90%;
+  margin: 3%;
   padding-left: 0 !important;
   padding-right: 0 !important; }
   .card img {
     filter: brightness(0.5); }
+  .card:hover {
+    background-color: #C5E3FB; }
   .card a {
     width: 100%;
-    position: absolute;
-    text-decoration: none !important; }
+    text-decoration: none !important;
+    color: black; }
     .card a:hover {
       filter: brightness(1.5); }
   .card .card-body {
-    color: white !important;
     filter: brightness(0.9); }
 
 body {
@@ -38,7 +38,6 @@ body {
     background-color: #3a769b !important; }
     @media (min-width: 991.98px) {
       body header nav .navbar-nav {
-        margin-left: auto;
         width: 50%; } }
     @media (min-width: 991.98px) {
       body header nav .navbar-nav .nav-item {
@@ -68,24 +67,34 @@ body {
     display: none; } }
 
 .card {
-  background-color: #C5E3FB;
-  width: 30%;
-  margin: 1%;
+  height: 90%;
+  margin: 3%;
   padding-left: 0 !important;
   padding-right: 0 !important; }
   .card img {
     filter: brightness(0.5); }
+  .card:hover {
+    background-color: #C5E3FB; }
   .card a {
     width: 100%;
-    position: absolute;
-    text-decoration: none !important; }
+    text-decoration: none !important;
+    color: black; }
     .card a:hover {
       filter: brightness(1.5); }
   .card .card-body {
-    color: white !important;
     filter: brightness(0.9); }
 
 /* event page */
+a {
+  text-decoration: none !important; }
+  a .paging-button {
+    background-color: #C5E3FB;
+    margin: 2%;
+    height: 50px;
+    line-height: 20px;
+    font-size: 100px;
+    user-select: none; }
+
 /* color */
 /* screen width (currently using bootstrap's) */
 /* color */
@@ -103,21 +112,21 @@ body {
     display: none; } }
 
 .card {
-  background-color: #C5E3FB;
-  width: 30%;
-  margin: 1%;
+  height: 90%;
+  margin: 3%;
   padding-left: 0 !important;
   padding-right: 0 !important; }
   .card img {
     filter: brightness(0.5); }
+  .card:hover {
+    background-color: #C5E3FB; }
   .card a {
     width: 100%;
-    position: absolute;
-    text-decoration: none !important; }
+    text-decoration: none !important;
+    color: black; }
     .card a:hover {
       filter: brightness(1.5); }
   .card .card-body {
-    color: white !important;
     filter: brightness(0.9); }
 
 /* ranking page */

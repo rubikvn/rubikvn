@@ -24,13 +24,15 @@ passport.use(new WcaStrategy(config,
     }
 ));
 
-router.get('/auth/wca',
+router.get('/wca',
     passport.authenticate('wca')
 );
 
-router.get('/auth/wca/callback', 
+router.get('/wca/callback', 
     passport.authenticate('wca', {failureRedirect: '/'}),
     function(req, res){
         res.send(req.session);
     }
 )
+
+module.exports = router;

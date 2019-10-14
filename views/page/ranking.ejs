@@ -4,122 +4,168 @@
 <html lang="en">
 
 <head>
-    <!-- Head -->
-    <% include ../partial/head %>
+  <!-- Head -->
+  <% include ../partial/head %>
+  <!-- <meta name="viewport" content="width=device-, initial-scale=1.0"> -->
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <% include ../partial/header %>
-    </header>
+  <!-- Header -->
+  <header>
+    <% include ../partial/header %>
+  </header>
 
-    <!-- Home -->
-    <main class="container ">
+  <!-- Home -->
+  <main class="container ">
 
-        <div class="row justify-content-center greeting">
-            <h2 class="col-16 text-center view-pc">
-                <!-- PC -->
-                Bảng xếp hạng
-            </h2>
-            <h3 class="col-20 text-center view-tablet">
-                <!-- phone -->
-                Bảng xếp hạng
-            </h3>
-        </div>
+    <div class="row justify-content-center greeting">
+      <h2 class="col-16 text-center view-pc">
+        <!-- PC -->
+        Bảng xếp hạng
+      </h2>
+      <h3 class="col-20 text-center view-tablet">
+        <!-- phone -->
+        Bảng xếp hạng
+      </h3>
+    </div>
 
-        <div class="row view-pc">
-            <div id="filter" class="col-6">
-                <div class="box border rounded">
-                    <label>
-                        <h5>Bộ lọc tìm kiếm</h5>
-                    </label>
-                    <form>
-                        <div class="form-group">
-                            <label for="person" class="">Tên cuber</label>
-                            <div class="">
-                                <input type="text" class="form-control" id="person" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="event" class="">Bộ môn</label>
-                            <select class="form-control" id="event">
-                                <option>Rubik's Cube</option>
-                                <option>222</option>
-                                <option>444</option>
-                            </select>
-                        </div>
+    <div class="row">
+      <div id="filter" class="col-6">
+        <div class="box border rounded">
+          <label>
+            <h5>Bộ môn:
+              <%= eventName[0].name %>
+            </h5>
+            <h5>Bộ lọc tìm kiếm</h5>
+          </label>
 
-                        <div class="form-group">
-                            <label class="">Hiển thị kết quả</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="format" id="best" value="best"
-                                    checked>
-                                <label class="form-check-label" for="best">
-                                    Tốt nhất
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="format" id="average" value="average">
-                                <label class="form-check-label" for="average">
-                                    Trung bình
-                                </label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Tìm</button>
-                    </form>
-                </div>
+          <form action="/ranking" method="get">
+            <div class="form-group">
+              <label for="event" class="">Bộ môn</label>
+              <select class="form-control" id="event" name="event">
+                <% events.forEach(function(event) { %>
+                <% if (event.id != currentEvent) { %>
+                <option value="<%= event.id %>"><%= event.name %></option>
+                <% } else { %>
+                <option value="<%= event.id %>"  selected="selected" ><%= event.name %></option>
+                <% } %>
+                <% }); %>
+              </select>
             </div>
 
-            <div id="tableResult" class="col-18">
-                <div class="result border rounded">
-                    <table class="table-responsive table-sm table-hover">
-                        <thead class="">
-                            <tr>
-                                <th scope="col">Hạng</th>
-                                <th scope="col">Tên thí sinh</th>
-                                <th scope="col"><%= format %></th>
-                                <th scope="col">Giải đấu</th>
-                                <th scope="col" colspan="5" class="text-center">Thời gian</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% for(var i=start; i < end; i++) { %>
-                            <tr>
-                                <td><%= i+1 %></td>
-                                <td>
-                                    <a target="_blank"
-                                        href="<%= 'https://www.worldcubeassociation.org/persons/' + results[0][i].personId %>">
-                                        <%= results[0][i].personName%>
-                                    </a> <!-- Go to cuber's WCA profile page-->
-                                </td>
-                                <td><%= results[0][i].format%></td>
-                                <td>
-                                    <a target="_blank"
-                                        href="<%= 'https://www.worldcubeassociation.org/competitions/' + results[0][i].competitionId %>">
-                                        <%= results[0][i].competition%>
-                                    </a>
-                                </td> <!-- Go to event's WCA page-->
-                                <td><%= results[0][i].value1.substr(0, 5)%></td>
-                                <td><%= results[0][i].value2.substr(0, 5)%></td>
-                                <td><%= results[0][i].value3.substr(0, 5)%></td>
-                                <td><%= results[0][i].value4.substr(0, 5)%></td>
-                                <td><%= results[0][i].value5.substr(0, 5)%></td>
-                            </tr>
-                            <% } %>
-                        </tbody>
-                    </table>
-                </div>
-
+            <div class="form-group">
+              <label class="">Hiển thị kết quả</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="format" id="average" value="Average" checked>
+                <label class="form-check-label" for="average">
+                  Trung bình
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="format" id="best" value="Best">
+                <label class="form-check-label" for="best">
+                  Tốt nhất
+                </label>
+              </div>
             </div>
-
+            <button type="submit" class="btn btn-primary">Tìm</button>
+          </form>
         </div>
-    </main>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <% include ../partial/footer %>
-    </footer>
+      <div id="tableResult" class="col-18">
+        <div class="result border rounded">
+          <table class="table table-sm table-hover">
+            <thead class="">
+              <tr>
+                <th scope="col">Hạng</th>
+                <th scope="col">Tên thí sinh</th>
+                <th scope="col"><%= format %></th>
+                <th scope="col">Giải đấu</th>
+                <th scope="col" colspan="5" class="text-center">Thời gian</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% let start = page * 50;
+                  let end = start + 49 %>
+              <% for(var i=start; i <= end; i++) { 
+                  if (i > rank[0].length - 1) break %>
+              <tr>
+                <td><%= i+1 %></td>
+                <td>
+                  <a target="_blank"
+                    href="<%= 'https://www.worldcubeassociation.org/persons/' + rank[0][i].personId %>">
+                    <%= rank[0][i].personName%>
+                  </a> <!-- Go to cuber's WCA profile page-->
+                </td>
+                <td><%= rank[0][i].format%></td>
+                <td>
+                  <a target="_blank"
+                    href="<%= 'https://www.worldcubeassociation.org/competitions/' + rank[0][i].competitionId %>">
+                    <%= rank[0][i].competition%>
+                  </a>
+                </td> <!-- Go to event's WCA page-->
+                <td class="text-center"><%= rank[0][i].value1 %></td>
+                <td class="text-center"><%= rank[0][i].value2 %></td>
+                <td class="text-center"><%= rank[0][i].value3 %></td>
+                <td class="text-center"><%= rank[0][i].value4 %></td>
+                <td class="text-center"><%= rank[0][i].value5 %></td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <nav>
+            <ul class="pagination">
+              <% if (page > 0) {%>
+              <li class="page-item">
+                <a class="page-link" href="/ranking?event=<%= currentEvent %>&format=<%= format %>">
+                  <span aria-label="First">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="/ranking?page=<%= parseInt(page) - 1 %>&event=<%= currentEvent %>&format=<%= format %>">
+                  <span aria-label="Previous">&lsaquo;</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="/ranking?page=<%= parseInt(page) - 1 %>&event=<%= currentEvent %>&format=<%= format %>"><%= page %></a>
+              </li>
+              <% } %>
+              <li class="page-item disabled"><a class="page-link"><%= parseInt(page) + 1 %></a></li>
+              <% if (page != Math.floor(parseInt(rank[0].length) / 50)) { %>
+              <li class="page-item">
+                <a class="page-link" href="/ranking?page=<%= parseInt(page) + 1 %>&event=<%= currentEvent %>&format=<%= format %>"><%= parseInt(page) + 2 %></a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="/ranking?page=<%= parseInt(page) + 1 %>&event=<%= currentEvent %>&format=<%= format %>">
+                  <span aria-label="Next">&rsaquo;</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="/ranking?page=<%= Math.floor(parseInt(rank[0].length) / 50) %>&event=<%= currentEvent %>&format=<%= format %>">
+                  <span aria-label="Last">&raquo;</span>
+                </a>
+              </li>
+              <% } %>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <% include ../partial/footer %>
+  </footer>
+
+  <script>
+
+  </script>
 
 </body>
 

@@ -1,28 +1,38 @@
 var router = require("express").Router();
+var util = require('util');
 
 var connectDB = require("../middleware/DBconnection.middleware");
 
-//ranking
-router.get("/ranking", (req, res, next) => {
+const queryDB = util.promisify(connectDB.query).bind(connectDB);
 
-  var event = '333'
-  var format = 'Average'
+const eventDefault = '333'
+const formatDefault = 'Average'
+
+//render page
+router.get("/ranking", async (req, res, next) => {
   
+  var event = req.query.event || eventDefault;
+  var format = req.query.format || formatDefault;
 
-  connectDB.query("call getResult" + format + "('" + event + "')", function (err, rows, fields) {
-    if (err) throw err
+  try {
 
-    resultSet = rows
-    
+    const rank = await queryDB("call getResult" + format + "('" + event + "')")
+    const events = await queryDB("select * from events")
+    const eventName = await queryDB("select name from events where id = '" + event + "'")
+
     res.render('page/ranking', {
-      results: resultSet,
+      rank: rank,
+      currentEvent: event,
+      events: events,
+      eventName: eventName,
       format: format,
-      start: 0,
-      end: 100,
+      page: req.query.page || 0,
     });
-  
-  })
 
+    // console.log(req.query.page );
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 module.exports = router
