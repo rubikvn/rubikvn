@@ -1,0 +1,87 @@
+<!-- views/page/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Head -->
+  <% include ../partial/head %>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <% include ../partial/header %>
+  </header>
+
+  <!-- Home -->
+  <main class="container ">
+
+    <div class="row justify-content-center greeting">
+      <h2 class="col-8 text-center view-pc">
+        <!-- PC -->
+        Sự kiện
+      </h2>
+      <h3 class="col-10 text-center view-tablet">
+        <!-- phone -->
+        Sự kiện
+      </h3>
+    </div>
+
+    <div id="events" class="row ">
+
+      <% let start = page * 6;
+                  let end = start + 5 %>
+      <% for(var i=start; i <= end; i++) { 
+        if (i > competitions.length - 1) break %>
+      <div class="col-sm-24 col-lg-8 ">
+        <div class="card border rounded ">
+          <a href="/event-detail/<%= competitions[i].id %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= competitions[i].name %></h5>
+              <p class="card-text">
+                Địa điểm:
+                <%- converter.makeHtml(competitions[i].venue) %>
+              </p>
+              <p>
+                Thời gian: Ngày <%= competitions[i].day %> tháng <%= competitions[i].month %> năm
+                <%= competitions[i].year %>
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+    <!-- Pagination -->
+    <div class="row d-flex">
+      <% if (page > 0) { %>
+      <div class="col-12 mr-auto">
+        <a href="/event?page=<%= page - 1%>">
+          <div class="paging-button text-center">
+            &lsaquo;
+          </div>
+        </a>
+      </div>
+      <% } %>
+      <% if (page < Math.floor(competitions.length / 6)) { %>
+      <div class="col-12 ml-auto">
+        <a href="/event?page=<%= page + 1 %>">
+          <div class="paging-button text-center">
+            &rsaquo;
+          </div>
+        </a>
+      </div>
+      <% } %>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <% include ../partial/footer %>
+  </footer>
+
+</body>
+
+</html>

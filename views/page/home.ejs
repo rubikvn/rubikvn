@@ -4,21 +4,125 @@
 <html lang="en">
 
 <head>
+    <!-- Head -->
     <% include ../partial/head %>
 </head>
 
-<body class="container">
-
+<body>
+    <!-- Header -->
     <header>
         <% include ../partial/header %>
     </header>
 
-    <main>
-        <div class="jumbotron">
-            <p class="hidden-sm">This text is hidden if view on phone</p>
+    <!-- Home -->
+    <main class="container ">
+
+        <div class="row justify-content-center greeting">
+            <h2 class="col-16 text-center view-pc">
+                <!-- PC -->
+                Chào mừng bạn đến với trang web chính thức của Cộng đồng Rubik Việt Nam
+            </h2>
+            <h3 class="col-20 text-center view-tablet">
+                <!-- phone -->
+                Chào mừng bạn đến với trang web chính thức của Cộng đồng Rubik Việt Nam
+            </h3>
         </div>
+
+        <div class="row justify-content-center greeting">
+            <h4 class="col-16 text-center view-pc">
+                <!-- PC -->
+                Theo dõi giải đấu WCA mới nhất tại Việt Nam
+                <br>
+                <a href="<%= '/event-detail/' + competitionLatestID %>"><%= competitionLatestName %></a>
+
+            </h4>
+
+            <h5 class="col-20 text-center view-tablet">
+                <!-- phone -->
+                Theo dõi giải đấu WCA mới nhất tại Việt Nam
+                <br>
+                <a href="<%= '/event-detail/' + competitionLatestID %>"><%= competitionLatestName %></a>
+
+            </h5>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-sm-24 col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><label>Bảng xếp hạng</label></h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="/ranking" class="btn btn-primary">Khám phá</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-24 col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><label>Sự kiện</label></h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="/event" class="btn btn-primary">Khám phá</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        <div class="row justify-content-center greeting">
+            <h2 class="col-16 text-center view-pc">
+                
+                Dành cho người mới
+            </h2>
+            <h3 class="col-20 text-center view-tablet">
+                
+                Dành cho người mới
+            </h3>
+        </div>
+        -->
+
+        <!-- <div class="row">
+            <div class="col-sm-24 col-lg-8">
+                <div class="card">
+                    <a href="#">
+                        <div class="card-body">
+                            <h5 class="card-title">Làm quen với Rubik</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-24 col-lg-8">
+                <div class="card">
+                    <a href="#">
+                        <div class="card-body">
+                            <h5 class="card-title">Hướng dẫn giải Rubik 3x3x3</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-24 col-lg-8">
+                <div class="card">
+                    <a href="#">
+                        <div class="card-body">
+                            <h5 class="card-title">21 trường hợp PLL</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> -->
     </main>
 
+    <!-- Footer -->
     <footer>
         <% include ../partial/footer %>
     </footer>

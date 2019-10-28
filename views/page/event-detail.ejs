@@ -1,0 +1,102 @@
+<!-- views/page/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Head -->
+  <% include ../partial/head %>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <% include ../partial/header %>
+  </header>
+
+  <!-- Home -->
+  <main class="container ">
+
+    <div class="row justify-content-center greeting">
+      <h2 class="col text-center view-pc">
+        <!-- PC -->
+        <%= competition.name %>
+      </h2>
+      <h3 class="text-center view-tablet">
+        <!-- phone -->
+        <%= competition.name %>
+      </h3>
+    </div>
+
+    <div id="event-detail" class="row">
+      <nav class="col-24">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab">
+            Thông tin chung
+          </a>
+          <a class="nav-item nav-link" id="nav-event-tab" data-toggle="tab" href="#nav-event" role="tab">
+            Chi tiết bộ môn
+          </a>
+          <a class="nav-item nav-link" id="nav-notice-tab" data-toggle="tab" href="#nav-notice" role="tab">
+            Lưu ý
+          </a>
+        </div>
+      </nav>
+      <div class="tab-content col-24" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel">
+          <div class="jumbotron">
+            <p>Địa điểm:
+              <%- converter.makeHtml(competition.venue) %> </p>
+            <p>Thời gian: Ngày <%= competition.day %> tháng <%= competition.month %> năm <%= competition.year %></p>
+            <p>
+              Địa chỉ:
+              <a target="_blank" href="<%= 'https://www.google.com/maps/place/' 
+                + parseInt(competition.latitude) / 1e6 
+                + ',' + parseInt(competition.longitude) / 1e6 %>">
+                <%= competition.venueAddress %>
+              </a>
+            </p>
+            <p>
+              Xem thêm thông tin trên trang WCA chính thức
+              <a target="_blank" href="<%= 'https://www.worldcubeassociation.org/competitions/' + competition.id %>">
+                tại đây.
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-event" role="tabpanel">
+          <div class="jumbotron">
+            <p>
+              Các bộ môn được thi trong giải đấu (ấn vào từng bộ môn để xem bảng xếp hạng tương ứng):
+            </p>
+            <% eventList.forEach(function (event) { %>
+            <% if (competition.eventSpecs.includes(event.id)) { %>
+            <a href="<%= '/ranking?event=' + event.id + '&format=Average' %>">
+              <%- event.name %> |
+            </a>
+            <% } %>
+            <% }) %>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-notice" role="tabpanel">
+          <div class="jumbotron">
+            <% if (competition.information === "") { %>
+            <p>Không có lưu ý</p>
+            <% } else { %>
+            <p><%- converter.makeHtml(competition.information) %></p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <% include ../partial/footer %>
+  </footer>
+
+</body>
+
+</html>
